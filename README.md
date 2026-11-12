@@ -128,14 +128,6 @@ Open the local URL displayed in the terminal.
 - Integrating Large Language Models with external knowledge sources.
 - Building an interactive AI application using Python.
 
-## Author
-
-**G. Akshitha Reddy**
-
-B.Tech – Computer Science and Engineering  
-Specialization: Artificial Intelligence and Machine Learning
-
-[GitHub Profile](https://github.com/gakshithareddy2)
 
 ---
 
