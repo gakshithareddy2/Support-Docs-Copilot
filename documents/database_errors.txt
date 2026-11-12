@@ -1,0 +1,14 @@
+Database Connection Troubleshooting Guide
+
+A database connection error may occur when the
+database server is not running.
+
+Check whether the database server is active.
+
+Verify that the database username and password
+are correct.
+
+Check the database connection URL and port number.
+
+Ensure that the application has permission to
+access the database.

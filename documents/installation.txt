@@ -1,0 +1,11 @@
+Application Installation Guide
+
+To install the application, download the installer
+from the official website.
+
+Run the installer and follow the instructions.
+
+Make sure your computer meets the minimum system
+requirements.
+
+Restart the application after installation.
