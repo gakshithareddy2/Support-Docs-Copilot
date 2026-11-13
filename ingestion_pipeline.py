@@ -1,3 +1,4 @@
+
 from pathlib import Path
 
 from langchain_community.document_loaders import (
@@ -10,74 +11,54 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 DOCUMENTS_DIR = Path("documents")
 
 
-def load_documents():
-    """
-    Load all supported documents from the documents folder.
-    Supported formats: TXT and PDF.
-    """
+def load_documents(selected_files):
+    """Load only the files selected in the Streamlit app."""
 
     DOCUMENTS_DIR.mkdir(exist_ok=True)
-
     documents = []
 
-    for file_path in DOCUMENTS_DIR.iterdir():
+    for filename in selected_files:
+        file_path = DOCUMENTS_DIR / Path(filename).name
 
         if not file_path.is_file():
+            print(f"File not found: {filename}")
             continue
 
-        extension = file_path.suffix.lower()
-
         try:
+            extension = file_path.suffix.lower()
+
             if extension == ".txt":
                 loader = TextLoader(
                     str(file_path),
                     encoding="utf-8"
                 )
-                loaded_docs = loader.load()
 
             elif extension == ".pdf":
                 loader = PyPDFLoader(str(file_path))
-                loaded_docs = loader.load()
 
             else:
                 continue
 
-            for document in loaded_docs:
-                document.metadata["source"] = file_path.name
+            loaded_docs = loader.load()
+
+            for doc in loaded_docs:
+                doc.metadata["source"] = file_path.name
 
             documents.extend(loaded_docs)
 
         except Exception as error:
-            print(f"Could not load {file_path.name}: {error}")
+            print(f"Could not load {filename}: {error}")
 
     return documents
 
 
 def split_documents(documents):
-    """
-    Split documents into smaller overlapping chunks.
-    """
+    """Split loaded documents into overlapping text chunks."""
 
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=50,
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=700,
+        chunk_overlap=80,
         length_function=len
     )
 
-    chunks = text_splitter.split_documents(documents)
-
-    return chunks
-
-
-if __name__ == "__main__":
-
-    docs = load_documents()
-    chunks = split_documents(docs)
-
-    print(f"Documents loaded: {len(docs)}")
-    print(f"Chunks created: {len(chunks)}")
-
-    for index, chunk in enumerate(chunks):
-        print(f"\nChunk {index + 1}")
-        print("Source:", chunk.metadata.get("source"))
-        print("Content:", chunk.page_content[:200])
+    return splitter.split_documents(documents)
