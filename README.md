@@ -63,7 +63,8 @@ Support-Docs-Copilot/
 
 Support Docs Copilot provides an interactive interface where users can upload documents, select specific files, ask questions, and receive AI-generated answers grounded in the selected documents.
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3bbf74dc-8c41-46eb-a5af-ffd31be737f9" />
+<img width="1848" height="810" alt="Screenshot (3644)" src="https://github.com/user-attachments/assets/c85b06a3-c9f6-47c0-bfcd-404f333b4ad1" />
+
 
 
 ### Key Interface Features
