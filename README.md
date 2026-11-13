@@ -59,7 +59,19 @@ Support-Docs-Copilot/
 ├── .gitignore
 └── README.md
 ```
+## Application Preview
 
+Support Docs Copilot provides an interactive interface where users can upload documents, select specific files, ask questions, and receive AI-generated answers grounded in the selected documents.
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3bbf74dc-8c41-46eb-a5af-ffd31be737f9" />
+
+
+### Key Interface Features
+- **Document Upload:** Upload PDF and TXT files.
+- **Document Selection:** Choose which documents to use for each session.
+- **Semantic Retrieval:** Retrieve relevant information from selected documents using ChromaDB.
+- **AI-Powered Answers:** Generate context-aware responses using Google Gemini.
+- **Source References:** View the document sources supporting each answer.
 ## Getting Started
 
 ### 1. Clone the Repository
